@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 17:05:58 by romvan-d          #+#    #+#             */
-/*   Updated: 2022/01/17 18:37:03 by romvan-d         ###   ########.fr       */
+/*   Updated: 2022/01/30 21:31:21 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void	*ft_memcpy(void *dst, const void *src, size_t len)
 	i = 0;
 	mod_dst = (unsigned char *) dst;
 	mod_src = (unsigned char *) src;
+	if (!dst && !src)
+		return (NULL);
 	while (len > 0)
 	{
 		mod_dst[i] = mod_src[i];

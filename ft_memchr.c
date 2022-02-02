@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 11:35:27 by romvan-d          #+#    #+#             */
-/*   Updated: 2022/01/17 18:19:00 by romvan-d         ###   ########.fr       */
+/*   Updated: 2022/01/30 21:30:09 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,18 @@
 
 void	*ft_memchr(const void *str, int c, size_t n)
 {
-	size_t	i;
-	unsigned char *ptr_str;
-	
+	size_t			i;
+	unsigned char	*ptr_str;
+	unsigned char	new_c;	
+
 	i = 0;
 	ptr_str = (unsigned char *) str;
-	while (ptr_str[i] && i < n)
+	new_c = (unsigned char) c;
+	while (i < n)
 	{
-		if (ptr_str[i] == c)
+		if (ptr_str[i] == new_c)
 			return (&ptr_str[i]);
-		i++;	
+		i++;
 	}
-	return (0);
+	return (NULL);
 }
