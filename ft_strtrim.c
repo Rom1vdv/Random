@@ -6,44 +6,74 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 16:53:42 by romvan-d          #+#    #+#             */
-/*   Updated: 2022/01/27 19:32:04 by romvan-d         ###   ########.fr       */
+/*   Updated: 2022/02/16 18:00:43 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static char *ft_trimleft(char *s, char *set)
+#include <stdio.h>
+static char	*ft_trimleft(char *s, char *set)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
+	char	*str;
 
 	i = 0;
-	while(s[i])
+	j = 0;
+	str = ft_strdup(s);
+	if (!str)
+		return (NULL);
+	while (str[i])
 	{
-		j = 0;
-		while(set[j])
+		if (!ft_strchr(set, str[i]))
 		{
-			if (s[i] != set[j])
+			while(j != i)
+			{
+				str[j] = str[i + j];
 				j++;
+			}
 		}
 		i++;
+		str[j] = '\0';
 	}
-	return (&s[i]);
+	return (str);
 }
 
+static char	*ft_trimright(char *s, char *set)
+{
+	size_t	i;
 
-
+	i = ft_strlen(s);
+	while (i >= 0)
+	{
+		if (!ft_strchr(set, s[i]))
+		{
+			s[i + 1] = '\0';
+			return (s);
+		}	
+		i--;
+	}	
+	return (s);
+}
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	if (!s1)
-		return(NULL);
-	
-}
+	char	*trimmed_str;
 
+	if (!s1 || !set)
+		return (NULL);
+	trimmed_str = ft_strdup(s1);
+	if (!trimmed_str)
+		return (NULL);
+	trimmed_str = ft_trimleft(trimmed_str, (char *)set);
+	trimmed_str = ft_trimright(trimmed_str, (char *)set);
+	return (trimmed_str);
+}
 #include <stdio.h>
 
 int main(void)
 {
-	printf("%s\n", ft_trimleft("salut", "as"));	
+    char c[] = "salut";
+    char set[] = "satu";
+    printf("Resultat : %s\n", ft_strtrim(c, set));    
 }

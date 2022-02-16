@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 16:45:52 by romvan-d          #+#    #+#             */
-/*   Updated: 2022/01/30 21:35:07 by romvan-d         ###   ########.fr       */
+/*   Updated: 2022/02/16 15:56:34 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strrchr(const char *s, int c)
 	len_str = ft_strlen(str);
 	while (len_str >= 0)
 	{
-		if (str[len_str] == c)
+		if (str[len_str] == (char) c)
 			return (&str[len_str]);
 		len_str--;
 	}

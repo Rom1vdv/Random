@@ -6,7 +6,7 @@
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/22 21:57:19 by romvan-d          #+#    #+#             */
-/*   Updated: 2022/01/30 21:29:48 by romvan-d         ###   ########.fr       */
+/*   Updated: 2022/02/16 15:38:53 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ char	*ft_itoa(int n)
 
 	nb = n;
 	len = ft_number_len(nb);
-	itoa = (char *)malloc(sizeof(char) * len + 1);
+	itoa = malloc(sizeof(*itoa) * len + 1);
 	if (!itoa)
 		return (NULL);
 	itoa[len] = '\0';

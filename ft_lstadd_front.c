@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: romvan-d <romvan-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/12 18:00:27 by romvan-d          #+#    #+#             */
-/*   Updated: 2022/02/16 15:52:03 by romvan-d         ###   ########.fr       */
+/*   Created: 2022/02/15 14:04:33 by romvan-d          #+#    #+#             */
+/*   Updated: 2022/02/16 16:37:44 by romvan-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *str)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	int		i;
-	char	*copied_str;
-
-	i = 0;
-	copied_str = malloc(sizeof(*copied_str) * ft_strlen(str) + 1);
-	if (!copied_str)
-		return (NULL);
-	while (str[i])
-	{
-		copied_str[i] = str[i];
-		i++;
+	if (lst && new)
+	{	
+		if (*lst == NULL)
+			new->next = NULL;
+		else
+			new->next = *lst;
+		*lst = new;
 	}
-	copied_str[i] = '\0';
-	return (copied_str);
 }
